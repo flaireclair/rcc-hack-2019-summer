@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\BulletBehaviourScript.cs" />
+    <Compile Include="Assets\Scripts\IsVisible.cs" />
     <Compile Include="Assets\Scripts\TargetOperation.cs" />
     <None Include="Assets\Resource\About these PBR files.txt" />
     <Reference Include="Unity.Timeline.Editor">

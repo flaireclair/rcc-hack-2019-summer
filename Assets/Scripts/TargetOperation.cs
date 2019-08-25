@@ -27,9 +27,9 @@ public class TargetOperation : MonoBehaviour
     
         Vector3 direction = new Vector3(-horizontal, vertical, 0).normalized;
 
-        Debug.Log(direction);
+        //Debug.Log(direction);
 
-        pos += direction;
+        pos += direction * 0.5f;
 
         pos.x = Mathf.Clamp(pos.x, min.x, max.x);
         pos.y = Mathf.Clamp(pos.y, min.y, max.y);
