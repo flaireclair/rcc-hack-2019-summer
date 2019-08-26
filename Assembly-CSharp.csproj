@@ -71,6 +71,24 @@
     <Compile Include="Assets\Scripts\TargetOperation.cs" />
     <None Include="Assets\Resource\About these PBR files.txt" />
     <Reference Include="Unity.Timeline.Editor">
+<<<<<<< HEAD
+      <HintPath>C:/Users/user/rcc-hack-2019-summer/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>C:/Users/user/rcc-hack-2019-summer/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>C:/Users/user/rcc-hack-2019-summer/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.CollabProxy.Editor">
+      <HintPath>C:/Users/user/rcc-hack-2019-summer/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>C:/Users/user/rcc-hack-2019-summer/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.DataPrivacy">
+      <HintPath>C:/Users/user/rcc-hack-2019-summer/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+=======
       <HintPath>/Users/saitoutatsuya/Documents/hackson/rcc-hack-2019-summer/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
@@ -87,6 +105,7 @@
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>/Users/saitoutatsuya/Documents/hackson/rcc-hack-2019-summer/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+>>>>>>> 808c2ea071811858afc99ff7de8bbef94f5a46e6
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Hub/Editor/2019.1.14f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -275,10 +294,20 @@
       <HintPath>/Users/saitoutatsuya/Documents/hackson/rcc-hack-2019-summer/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
+<<<<<<< HEAD
+      <HintPath>C:/Users/user/rcc-hack-2019-summer/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.StandardEvents">
+      <HintPath>C:/Users/user/rcc-hack-2019-summer/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.Tracker">
+      <HintPath>C:/Users/user/rcc-hack-2019-summer/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+=======
       <HintPath>/Users/saitoutatsuya/Documents/hackson/rcc-hack-2019-summer/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
       <HintPath>/Users/saitoutatsuya/Documents/hackson/rcc-hack-2019-summer/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
+>>>>>>> 808c2ea071811858afc99ff7de8bbef94f5a46e6
     </Reference>
     <Reference Include="netstandard">
       <HintPath>/Applications/Unity/Hub/Editor/2019.1.14f1/Unity.app/Contents/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
