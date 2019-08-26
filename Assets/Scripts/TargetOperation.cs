@@ -10,6 +10,9 @@ public class TargetOperation : MonoBehaviour
     private Vector2 max;
     private Vector2 min;
 
+    [SerializeField]
+    private int playerID;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,14 +25,14 @@ public class TargetOperation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxis("JoyCon Horizontal L");
-        float vertical = Input.GetAxis("JoyCon Vertical L");
-    
-        Vector3 direction = new Vector3(-horizontal, vertical, 0).normalized;
+        float horizontal = Input.GetAxisRaw("JoyCon Horizontal " + playerID);
+        float vertical = Input.GetAxisRaw("JoyCon Vertical " + playerID);
+
+        Vector3 direction = new Vector3(vertical, horizontal, 0).normalized;
 
         Debug.Log(direction);
 
-        pos += direction;
+        pos += direction * 0.5f;
 
         pos.x = Mathf.Clamp(pos.x, min.x, max.x);
         pos.y = Mathf.Clamp(pos.y, min.y, max.y);
