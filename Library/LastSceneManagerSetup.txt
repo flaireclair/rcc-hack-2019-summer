@@ -1,9 +1,0 @@
-sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/shot.unity
-=======
-- path: Assets/Scenes/collision.unity
->>>>>>> 808c2ea071811858afc99ff7de8bbef94f5a46e6
-  isLoaded: 1
-  isActive: 1
-  isSubScene: 0

@@ -64,8 +64,12 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\BulletBehaviourScript.cs" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\BulletDestroy.cs" />
 =======
+=======
+    <Compile Include="Assets\Scripts\EnemyPosVisible.cs" />
+>>>>>>> a34544cf1412de9c9beb79463e68afa45eec0909
     <Compile Include="Assets\Scripts\OutDisplayPosition.cs" />
 >>>>>>> 66df9aef86658f3927591111379dbfe7ad5c0b68
     <Compile Include="Assets\Scripts\TargetOperation.cs" />

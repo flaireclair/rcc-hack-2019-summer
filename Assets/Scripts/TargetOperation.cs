@@ -30,7 +30,7 @@ public class TargetOperation : MonoBehaviour
 
         Vector3 direction = new Vector3(vertical, horizontal, 0).normalized;
 
-        Debug.Log(direction);
+        //Debug.Log(direction);
 
         pos += direction * 0.5f;
 
