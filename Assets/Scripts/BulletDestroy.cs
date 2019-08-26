@@ -15,13 +15,12 @@ public class BulletDestroy : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter(Collider t)
+
+    private void OnCollisionEnter(Collision bullet)
     {
-        Debug.Log(t.gameObject.name);
-        if (t.gameObject.name == "1p")
+        if (bullet.gameObject.tag == "Bullet")
         {
-            Debug.Log("Hit!");
-            Destroy(this.gameObject);
+            //ここに被弾エフェクトのスクリプトを書く
         }
     }
 }
