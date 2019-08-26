@@ -16,7 +16,7 @@ public class BulletDestroy : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider bullet)
+    private void OnTriggerEnter (Collider bullet)
     {
         if(bullet.gameObject.tag == "Bullet")
             { Destroy(gameObject);
