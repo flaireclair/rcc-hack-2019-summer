@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/shateki.unity
+- path: Assets/Scenes/shot.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
