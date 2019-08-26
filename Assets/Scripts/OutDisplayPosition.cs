@@ -34,7 +34,7 @@ namespace ScreenControl
             Debug.Log("lay lb pos : " + lb);
             Debug.Log("lay rt pos : " + rt);
 
-            if (CheckInScreen(Enemy, this.transform) == new Vector3(0, 0, 0))
+            if (CheckInScreen(Enemy, this.transform) == Vector2.zero)
                 ShowText(this.gameObject.name + "画面内にいるよ");
             else
                 ShowText(this.gameObject.name + "画面外だよ");
@@ -55,7 +55,7 @@ namespace ScreenControl
         }
 
         // 対象のオブジェクトの位置から画面内かどうか判定して返す
-        public static Vector3 CheckInScreen(GameObject targetObj, Transform thisObj)
+        public static Vector2 CheckInScreen(GameObject targetObj, Transform thisObj)
         {
             tran = thisObj;
             if (targetObj.transform.position.x == 0.0f)
