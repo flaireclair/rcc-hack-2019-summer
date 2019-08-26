@@ -18,7 +18,7 @@ public class BulletDestroy : MonoBehaviour
 
     private void OnTriggerEnter(Collider bullet)
     {
-        if (bullet.gameObject.tag == "Bullet")
+        if(bullet.gameObject.tag == "Bullet")
             { Destroy(gameObject);
             //ここに被弾エフェクトのスクリプトを書く
         }

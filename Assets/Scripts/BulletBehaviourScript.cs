@@ -20,7 +20,7 @@ public class BulletBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate ()
     {
-        if(Input.GetKey(KeyCode.Space)){
+        if(Input.GetKeyDown(KeyCode.Space)){
         //public GameObject Bullet = (GameObject)Resources.Load ("Bullet");
             
             GameObject bullet = Instantiate(bulletClone, 
