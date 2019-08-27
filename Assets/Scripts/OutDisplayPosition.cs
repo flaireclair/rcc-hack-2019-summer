@@ -27,8 +27,8 @@ namespace ScreenControl
 
         void Update()
         {
-            lb = new Vector2(transform.position.x - 35f, transform.position.y - 45f); // 左下
-            rt = new Vector2(transform.position.x + 35f, transform.position.y + 45f); // 右上
+            lb = new Vector2(transform.position.x - 35f, transform.position.y - 43f); // 左下
+            rt = new Vector2(transform.position.x + 35f, transform.position.y + 43f); // 右上
 
             Debug.Log("target pos : " + Enemy.transform.position);
             Debug.Log("lay lb pos : " + lb);
@@ -58,41 +58,42 @@ namespace ScreenControl
         public static Vector2 CheckInScreen(GameObject targetObj, Transform thisObj)
         {
             tran = thisObj;
-            if (targetObj.transform.position.x == 0.0f)
+            /*if (targetObj.transform.position.x == 0.0f)
                 def = new Vector2(30f, 30f / tran.position.y - 31f);
             if (targetObj.transform.position.y - 31f == 0.0f)
                 def = new Vector2(30f / tran.position.x, 30f);
             else
-                def = new Vector2(30f / tran.position.x, 30f / tran.position.y - 31f);
+                def = new Vector2(30f / tran.position.x, 30f / tran.position.y - 31f);*/
+            def = new Vector2(5.0f, 5.0f);
             lb = new Vector2(tran.position.x - 35f, tran.position.y - 43f); // 左下
             rt = new Vector2(tran.position.x + 35f, tran.position.y + 43f); // 右上
             if (targetObj.transform.position.x < lb.x)
             {
                 if (targetObj.transform.position.y < lb.y)
-                    return new Vector2(lb.x - def.x, lb.y - def.y);
+                    return new Vector2(lb.x + def.x, lb.y + def.y);
                 if (rt.y < targetObj.transform.position.y)
-                    return new Vector2(lb.x - def.x, rt.y + def.y);
-                return new Vector3(lb.x - def.x, targetObj.transform.position.y);
+                    return new Vector2(lb.x + def.x, rt.y - def.y);
+                return new Vector3(lb.x + def.x, targetObj.transform.position.y);
             }
             else if (rt.x < targetObj.transform.position.x)
             {
                 if (targetObj.transform.position.y < lb.y)
-                    return new Vector2(rt.x + def.x, lb.y - def.y);
+                    return new Vector2(rt.x - def.x, lb.y + def.y);
                 if (rt.y < targetObj.transform.position.y)
-                    return new Vector2(rt.x + def.x, rt.y + def.y);
-                return new Vector2(rt.x + def.x, targetObj.transform.position.y);
+                    return new Vector2(rt.x - def.x, rt.y - def.y);
+                return new Vector2(rt.x - def.x, targetObj.transform.position.y);
             }
             else if (targetObj.transform.position.y < lb.y)
-                return new Vector2(targetObj.transform.position.x, lb.y - def.y);
+                return new Vector2(targetObj.transform.position.x, lb.y + def.y);
             else if (rt.y < targetObj.transform.position.y)
-                return new Vector2(targetObj.transform.position.x, rt.y + def.y);
+                return new Vector2(targetObj.transform.position.x, rt.y - def.y);
 
             return Vector2.zero;
         }
 
         // 以下はサンプルのUI表示用
-        [SerializeField]
-        Text uiText;
+        //[SerializeField]
+        //Text uiText;
         void ShowText(string message)
         {
             //uiText.text = message;
