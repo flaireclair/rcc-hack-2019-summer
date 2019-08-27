@@ -20,11 +20,11 @@ public class BulletBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate ()
     {
-        if(Input.GetKey(KeyCode.Space)){
+        if(Input.GetKeyDown(KeyCode.Space)){
         //public GameObject Bullet = (GameObject)Resources.Load ("Bullet");
             
             GameObject bullet = Instantiate(bulletClone, 
-                                            new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z + 1.0f), 
+                                            new Vector3(transform.position.x, transform.position.y + 0.9f, transform.position.z), 
                                             Quaternion.identity);//初期位置の設定方法がわからん
 
             float z = 30f;
