@@ -31,7 +31,7 @@ namespace ScreenControl
             }
             else
             {
-                transform.position = targetPos;
+                Screen.transform.position = targetPos;
                 Screen.SetActive(true);
             }
         }
