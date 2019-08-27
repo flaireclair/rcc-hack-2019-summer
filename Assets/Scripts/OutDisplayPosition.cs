@@ -3,87 +3,101 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OutDisplayPosition : MonoBehaviour
+namespace ScreenControl
 {
-    [SerializeField]
-    Camera targetCamera; // 映っているか判定するカメラへの参照
-
-    [SerializeField]
-    Transform targetObj; // 映っているか判定する対象への参照。inspectorで指定する
-
-    Vector3 lb; // 左下の座標
-    Vector3 rt; // 右上の座標
-    Transform tran;
-
-
-    // Use this for initialization
-    void Start()
+    public class OutDisplayPosition : MonoBehaviour
     {
-        tran = transform;
-    }
+        [SerializeField]
+        Camera targetCamera; // 映っているか判定するカメラへの参照
 
-    void Update()
-    {
-        lb = new Vector3(tran.position.x - 35.9f, tran.position.y - 47.4f, 30.0f); // 左下
-        rt = new Vector3(tran.position.x + 35.9f, tran.position.y + 43.3f, 30.0f); // 右上
+        [SerializeField]
+        GameObject Enemy; // 映っているか判定する対象への参照。inspectorで指定する
 
-        /*Debug.Log("target pos : " + targetObj.transform.position);
-        Debug.Log("lay lb pos : " + lb);
-        Debug.Log("lay rt pos : " + rt);*/
+        private static Vector2 lb; // 左下の座標
+        private static Vector2 rt; // 右上の座標
+        private static Vector2 def;
+        private static Transform tran;
 
-        if (CheckInScreen() == new Vector3(0, 0, 0))
-            ShowText("画面内にいるよ");
-        else
-            ShowText("画面外だよ");
-    }
 
-    // カメラからRayを飛ばしてhitした位置を返す
-    Vector3 GetRayhitPos(Vector3 targetPos)
-    {
-        Ray ray = targetCamera.ViewportPointToRay(targetPos);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit)) 
+        // Use this for initialization
+        void Start()
         {
-            Debug.Log(hit.point);
-            return hit.point;
+
         }
 
-        return Vector3.zero; // 何もヒットしなければ(0, 0, 0)を返す
-    }
-
-    // 対象のオブジェクトの位置から画面内かどうか判定して返す
-    public Vector3 CheckInScreen()
-    {
-        if (targetObj.position.x < lb.x)
+        void Update()
         {
-            if (targetObj.position.y < lb.y)
-                return new Vector3(lb.x + 10.0f, lb.y + 10.0f, targetObj.position.z);
-            if (rt.y < targetObj.position.y)
-                return new Vector3(lb.x + 10.0f, rt.y - 10.0f, targetObj.position.z);
-            return new Vector3(lb.x + 10.0f, targetObj.position.y, targetObj.position.z);
+            lb = new Vector2(transform.position.x - 35f, transform.position.y - 43f); // 左下
+            rt = new Vector2(transform.position.x + 35f, transform.position.y + 43f); // 右上
+
+            Debug.Log("target pos : " + Enemy.transform.position);
+            Debug.Log("lay lb pos : " + lb);
+            Debug.Log("lay rt pos : " + rt);
+
+            if (CheckInScreen(Enemy, this.transform) == Vector2.zero)
+                ShowText(this.gameObject.name + "画面内にいるよ");
+            else
+                ShowText(this.gameObject.name + "画面外だよ");
         }
-        else if (rt.x < targetObj.position.x)
+
+        // カメラからRayを飛ばしてhitした位置を返す
+        Vector3 GetRayhitPos(Vector3 targetPos)
         {
-            if (targetObj.position.y < lb.y)
-                return new Vector3(rt.x + 10.0f, lb.y + 10.0f, targetObj.position.z);
-            if (rt.y < targetObj.position.y)
-                return new Vector3(rt.x + 10.0f, rt.y + 10.0f, targetObj.position.z);
-            return new Vector3(rt.x + 10.0f, targetObj.position.y, targetObj.position.z);
+            Ray ray = targetCamera.ViewportPointToRay(targetPos);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                Debug.Log(hit.point);
+                return hit.point;
+            }
+
+            return Vector3.zero; // 何もヒットしなければ(0, 0, 0)を返す
         }
-        else if (targetObj.position.y < lb.y)
-            return new Vector3(targetObj.position.x, lb.y + 10.0f, targetObj.position.z);
-        else if (rt.y < targetObj.position.y)
-            return new Vector3(targetObj.position.y, rt.y - 10.0f, targetObj.position.z);
 
-        return Vector3.zero;
-    }
+        // 対象のオブジェクトの位置から画面内かどうか判定して返す
+        public static Vector2 CheckInScreen(GameObject targetObj, Transform thisObj)
+        {
+            tran = thisObj;
+            /*if (targetObj.transform.position.x == 0.0f)
+                def = new Vector2(30f, 30f / tran.position.y - 31f);
+            if (targetObj.transform.position.y - 31f == 0.0f)
+                def = new Vector2(30f / tran.position.x, 30f);
+            else
+                def = new Vector2(30f / tran.position.x, 30f / tran.position.y - 31f);*/
+            def = new Vector2(5.0f, 5.0f);
+            lb = new Vector2(tran.position.x - 35f, tran.position.y - 43f); // 左下
+            rt = new Vector2(tran.position.x + 35f, tran.position.y + 43f); // 右上
+            if (targetObj.transform.position.x < lb.x)
+            {
+                if (targetObj.transform.position.y < lb.y)
+                    return new Vector2(lb.x + def.x, lb.y + def.y);
+                if (rt.y < targetObj.transform.position.y)
+                    return new Vector2(lb.x + def.x, rt.y - def.y);
+                return new Vector3(lb.x + def.x, targetObj.transform.position.y);
+            }
+            else if (rt.x < targetObj.transform.position.x)
+            {
+                if (targetObj.transform.position.y < lb.y)
+                    return new Vector2(rt.x - def.x, lb.y + def.y);
+                if (rt.y < targetObj.transform.position.y)
+                    return new Vector2(rt.x - def.x, rt.y - def.y);
+                return new Vector2(rt.x - def.x, targetObj.transform.position.y);
+            }
+            else if (targetObj.transform.position.y < lb.y)
+                return new Vector2(targetObj.transform.position.x, lb.y + def.y);
+            else if (rt.y < targetObj.transform.position.y)
+                return new Vector2(targetObj.transform.position.x, rt.y - def.y);
 
-    // 以下はサンプルのUI表示用
-    [SerializeField]
-    Text uiText;
-    void ShowText(string message)
-    {
-        //uiText.text = message;
-        Debug.Log(message);
+            return Vector2.zero;
+        }
+
+        // 以下はサンプルのUI表示用
+        //[SerializeField]
+        //Text uiText;
+        void ShowText(string message)
+        {
+            //uiText.text = message;
+            Debug.Log(message);
+        }
     }
 }
