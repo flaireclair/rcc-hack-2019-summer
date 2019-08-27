@@ -25,8 +25,9 @@ public class BulletBehaviourScript : MonoBehaviour
         //public GameObject Bullet = (GameObject)Resources.Load ("Bullet");
             
             GameObject bullet = Instantiate(bulletClone, 
-                                            new Vector3(transform.position.x, transform.position.y + 4.8f, transform.position.z + 15.9f), 
-                                            Quaternion.identity);//初期位置の設定方法がわからん
+                                            new Vector3(transform.position.x, transform.position.y + 4.8f, transform.position.z + 15.9f),
+                                            Quaternion.Euler(2,0,0));//初期位置の設定方法がわからん
+            bullet.transform.parent = this.transform;
 
             float z = 50f;
 

@@ -13,7 +13,7 @@ public class erasebullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.z > 40)
+        if(transform.position.z > 50)
         {
             Destroy(gameObject);
         }
