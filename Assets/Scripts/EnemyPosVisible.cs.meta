@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/distance.cs.meta
-guid: 96378e1d163eda5448089acf9206e349
-=======
 guid: 263110d3502ce0b438c2d2ca3f23e323
->>>>>>> c6b5c52b46850abdc32db02ce7ebf39cfb9eeb6a:Assets/Scripts/EnemyPosVisible.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
