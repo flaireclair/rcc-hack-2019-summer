@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class erasebullet : MonoBehaviour
+public class SceneMovefinish : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 5.0f);
+        
     }
 
     // Update is called once per frame
