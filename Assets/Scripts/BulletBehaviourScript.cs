@@ -27,10 +27,8 @@ public class BulletBehaviourScript : MonoBehaviour
             GameObject bullet = Instantiate(bulletClone); 
                                             //new Vector3(transform.position.x, transform.position.y + 4.8f, transform.position.z + 15.9f),
                                             //Quaternion.Euler(0,0,0));//初期位置の設定方法がわからん
-
-            bullet.transform.parent = this.transform;
-
-            bullet.transform.position = transform.localPosition + new Vector3(-1.63f, 3.18f, -15.9f);
+                                            
+            bullet.transform.position = new Vector3(transform.position.x, transform.position.y, 0) + transform.GetChild(0).transform.localPosition + new Vector3(-1.63f, 2.8f, -17.9f);
             bullet.transform.rotation = transform.GetChild(0).gameObject.transform.localRotation;
 
             float z = 50f;

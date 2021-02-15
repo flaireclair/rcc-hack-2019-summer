@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class BulletDestroy : MonoBehaviour
+public class SceneMove : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,15 +13,9 @@ public class BulletDestroy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private void OnCollisionEnter(Collision bullet)
-    {
-        if(bullet.gameObject.tag == "Bullet")
+       if (Input.GetMouseButtonDown(0))
         {
-            SceneManager.LoadScene("start");
-            Destroy(gameObject);
-        }
+            SceneManager.LoadScene("shateki");
+        } 
     }
 }
